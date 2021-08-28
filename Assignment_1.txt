@@ -1,0 +1,55 @@
+pragma solidity ^0.8.0;
+
+contract ParentVahicle{
+    function Start() public virtual returns(string memory){
+        return "The Vahicle has Just Accelerated";
+    }
+    function Accelerate() public virtual returns(string memory){
+        return "The Vehicle has just Accelerated";
+    }
+    function stop () public virtual returns(string memory){
+        return "The Vehicle has just Stopped";
+    }
+    function service() public virtual returns(string memory){
+        return "The Vehicle is being serviced";
+    }
+}
+
+contract Car is ParentVahicle{
+        function service() public override returns(string memory){
+        return "The Car is being serviced";
+    }
+}
+contract Truck is ParentVahicle{
+        function service()  public override returns(string memory){
+        return "The Truck is being serviced";
+    }
+}
+contract MotorCycle is ParentVahicle{
+        function service() public override returns(string memory){
+        return "The MotorCycle is being serviced";
+    }
+}
+
+contract AltoMehran is Car{
+    
+}
+contract Hino is Truck{
+    
+}
+contract Yamaha is MotorCycle{
+    
+}
+
+contract VahicleService{
+    function CarService(Car Ccar)public returns(string memory){
+        return Ccar.service();
+    }
+       function TruckService(Truck tTuck)public returns(string memory){
+        return tTuck.service();
+    }
+       function YamahaService(MotorCycle Cycle)public returns(string memory){
+        return Cycle.service();
+    }
+}
+
